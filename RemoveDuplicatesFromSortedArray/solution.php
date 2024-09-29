@@ -20,4 +20,24 @@ class Solution {
         }
         return $uniqueCount;
     }
+
+    /**
+     * @param Integer[] $nums
+     * @return Integer
+     */
+    function removeDuplicates2(&$nums) {
+        $dublicates = [];
+        $unique = [];
+        foreach($nums as $key => $num) {
+            if ($num === $nums[$key + 1]) {
+                $dublicates[] = $num;
+            } else {
+                $unique[] = $num;
+            }
+        }
+
+        $nums = array_merge($unique, $dublicates);
+        return count($unique);
+    }
 }
+
